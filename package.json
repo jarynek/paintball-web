@@ -4,7 +4,12 @@
   "description": "Paintball Halenkovice web",
   "main": "index.js",
   "scripts": {
-    "test": "phw"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress",
+    "start": "php bin/console server:run"
   },
   "repository": {
     "type": "git",
@@ -20,5 +25,25 @@
   "bugs": {
     "url": "https://github.com/jarynek/paintball-web/issues"
   },
-  "homepage": "https://github.com/jarynek/paintball-web#readme"
+  "homepage": "https://github.com/jarynek/paintball-web#readme",
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.28.0",
+    "animate.css": "^3.7.2",
+    "bootstrap": "^4.3.1",
+    "bootstrap-datepicker": "^1.9.0",
+    "bootstrap-datetimepicker-npm": "^4.17.37-npm",
+    "jquery": "^3.4.1",
+    "jquery-datetimepicker": "^2.5.21",
+    "popper.js": "^1.15.0",
+    "tslint": "^5.19.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "fork-ts-checker-webpack-plugin": "^0.4.15",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.3.1",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.6.2",
+    "webpack-notifier": "^1.8.0"
+  }
 }

@@ -1,0 +1,7 @@
+<div class="navigation">
+        <ul>
+                {% for item in menu %}
+                        <li><a href="#{{ item.id }}" data-onClick="toggleSelection">{{ item.title }}</a></li>
+                {% endfor %}
+        </ul>
+</div>

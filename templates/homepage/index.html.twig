@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomepageController!{% endblock %}
+
+{% block body %}
+    <div class="fullscreen">
+        <video loop muted autoplay class="fullscreen-bg__video">
+            <source src="{{ asset('images/video2.mp4') }}" type="video/mp4">
+        </video>
+    </div>
+    {% include 'components/navigation.html.twig' with {'menu': sections } %}
+    {% for section in sections %}
+        <div class="section animated" id="{{ section.id }}">
+            <span data-onclick="closeSelection">Close</span>
+            {% include ['sections/'~ section.tpl ~ '.html.twig', 'components/empty.html.twig'] with {'section': section } %}
+        </div>
+    {% endfor %}
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/runtime.js') }}"></script>
+    <script src="{{ asset('build/homepage.js') }}"></script>
+    <script src="{{ asset('build/test.js') }}"></script>
+{% endblock %}
