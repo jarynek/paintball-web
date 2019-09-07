@@ -1,0 +1,24 @@
+{
+  "name": "paintball-web",
+  "version": "1.0.0",
+  "description": "Paintball Halenkovice web",
+  "main": "index.js",
+  "scripts": {
+    "test": "phw"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarynek/paintball-web.git"
+  },
+  "keywords": [
+    "Panintball",
+    "Halenkovice",
+    "web"
+  ],
+  "author": "Jarek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarynek/paintball-web/issues"
+  },
+  "homepage": "https://github.com/jarynek/paintball-web#readme"
+}
