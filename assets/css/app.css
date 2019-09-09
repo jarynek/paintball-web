@@ -15,6 +15,14 @@ body {
     richness: 0;
 }
 
+.navigation ul {
+    text-align: center;
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
 .section {
     position: fixed;
     left: 0;
@@ -23,13 +31,47 @@ body {
     display: none;
     border: 1px #d6d6d6 solid;
     width: 70%;
-    max-width: 600px;
+    max-height: 80%;
+    overflow: hidden;
     margin: auto;
     padding: 20px;
     -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.15);
     -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     background: #fff;
+}
+.section.section_order {
+    height: 80%;
+}
+.bd {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 20px;
+    right: 20px;
+}
+.hd {
+    background: #fff;
+    position: absolute;
+    padding: 0 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    border-bottom: 1px #d6d6d6 solid;
+}
+.ft {
+    background: #fff;
+    position: absolute;
+    padding: 10px 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    border-top: 1px #d6d6d6 solid;
+    text-align: end;
 }
 .active {
     display: block;
@@ -46,4 +88,63 @@ body {
     height: auto;
     z-index: -100;
     transform: translate(-50%, -50%);
+}
+
+.form-section  {
+    padding: 10px 0;
+}
+
+.form-section + .form-section {
+    border-top: solid 1px #E3E3E6;
+}
+
+.compare {
+    border-color: red;
+}
+
+.order-section {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    right: -100%;
+    bottom: 60px;
+    top: 60px;
+    padding: 20px;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.order-section.active {
+    right: 0;
+}
+
+.spinner {
+    position: absolute;
+    background: #fff;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.hdn {
+    display: none;
+}
+
+.error {
+    border-color: red;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+
+.form-control:focus.error {
+    border-color: red !important;
+}
+
+.btn.disabled {
+    opacity: 0.3;
 }

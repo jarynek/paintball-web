@@ -20,6 +20,11 @@ class HomepageController extends AbstractController
     {
         $this->sections = [
             [
+                'id' => 'section_about',
+                'title' => 'O nás',
+                'tpl'=> 'about'
+            ],
+            [
                 'id' => 'section_services',
                 'title' => 'Služby',
                 'tpl'=> 'services'

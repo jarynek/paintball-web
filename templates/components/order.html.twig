@@ -1,0 +1,13 @@
+<div class="message">
+    {% if formData and formData is not empty %}
+            {% if formData['send_order'] is defined %}
+                    <h2>Order was send</h2>
+            {% else %}
+                    <ul>
+                            {% for key, data in formData %}
+                                    <li>{{key}} - {{data}}</li>
+                            {% endfor %}
+                    </ul>
+            {% endif %}
+    {% endif %}
+</div>

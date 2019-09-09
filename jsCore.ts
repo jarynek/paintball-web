@@ -36,7 +36,14 @@ export class JsCore {
     /**
      * dateTimePicker
      */
-    public dateTimePicker() {
-        $('#datetimepicker1').datetimepicker();
+    public dateTimePicker(callBackFn: any) {
+        $('.datetimepicker').datetimepicker({
+                format:'Y-m-d H:i:s',
+                lang:'de',
+                onChangeDateTime:(dp: any, $input: JQuery | null) => {
+                    callBackFn(dp, $input);
+                }
+            }
+        );
     }
 }

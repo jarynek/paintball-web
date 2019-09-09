@@ -1,50 +1,84 @@
-<h2>{{ section.title }}</h2>
-<form action="/order" method="post">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="name">Jméno</label>
-                <input type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Vaše jméno">
+<form name="order" action="/order" method="post" data-type="post">
+    <div class="hd">
+        <h2>{{ section.title }}</h2>
+    </div>
+    {# bd #}
+    <div class="bd">
+        {# User section #}
+        <div class="form-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Jméno</label>
+                        <input data-check="fill" type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Vaše jméno">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="user_name">Příjmení</label>
+                        <input data-check="fill" type="text" name="user_name" class="form-control" id="user_name" placeholder="Vaše příjmení">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input data-check="email" type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Váš e-mail">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="mobil">Telefon</label>
+                        <input data-check="fill" type="mobil" name="mobil" class="form-control" id="mobil" aria-describedby="emailHelp" placeholder="Váš mobil">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="user_name">Příjmení</label>
-                <input type="text" name="user_name" class="form-control" id="user_name" placeholder="Vaše příjmení">
+
+        {# Paintball section #}
+        <div class="form-section">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="players_count">Počet hráčů</label>
+                        <input data-check="fill" type="number" name="players_count" class="form-control" id="players_count" placeholder="Počet hráčů">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="date_time_from">Datum čas od</label>
+                        <input data-check="dateTime" autocomplete="off" placeholder="Datum čas od" id="date_time_from" class="datetimepicker form-control" type='text' name="date_time_from" class="form-control" />
+                        <span class="message">Musi byt mensi</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="date_time_to">Datum čas do</label>
+                    <input data-check="dateTime" autocomplete="off" placeholder="Datum čas do" id="date_time_to" class="datetimepicker form-control" type='text' name="date_time_to" class="form-control" />
+                    <span class="message">Musi byt vetsi</span>
+                </div>
+            </div>
+        </div>
+
+        {# Catering section #}
+        <div class="form-section">
+            <div class="row">
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Váš e-mail">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="players_count">Počet hráčů</label>
-                <input type="number" name="players_count" class="form-control" id="players_count" placeholder="Počet hráčů">
+    <div class="ft">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" name="send_order" id="send" class="hdn">
+                <span data-onclick="back" id="back" class="btn btn-outline-secondary hdn">Zpět</span>
+                <button id="next" type="submit" class="btn btn-primary disabled" disabled>Pokračovat</button>
+                <button id="sendOrder" type="submit" class="btn btn-primary hdn">Odeslat</button>
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-5">
-            <label for="">Datum čas</label>
-            <input id='datetimepicker1' type='text' name="date_time" class="form-control" />
-        </div>
-        <div class="col-md-7">
-            <label for="players_count">Počet hráčů</label>
-            <input type="number" name="players_count" class="form-control" id="players_count" placeholder="Počet hráčů">
-        </div>
-    </div>
-
-
-    <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    
+    <div class="order-section"></div>
 </form>
