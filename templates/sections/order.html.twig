@@ -1,70 +1,64 @@
-<form name="order" action="/order" method="post" data-type="post">
+<form name="order" action="/order" method="post" data-type="post" novalidate>
     <div class="hd">
         <h2>{{ section.title }}</h2>
     </div>
     {# bd #}
     <div class="bd">
-        {# User section #}
         <div class="form-section">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">Jméno</label>
-                        <input data-check="fill" type="text" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Vaše jméno">
+                        <label for="name">Jméno <span class="label-message">musíte vyplnit</span>
+                            <input data-check="fill" autocomplete="off" type="text" name="name" class="form-control" id="name" aria-describedby="name">
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="user_name">Příjmení</label>
-                        <input data-check="fill" type="text" name="user_name" class="form-control" id="user_name" placeholder="Vaše příjmení">
+                        <label for="user_name">Příjmení <span class="label-message">musíte vyplnit</span>
+                            <input data-check="fill" autocomplete="off" type="text" name="user_name" class="form-control" id="user_name">
+                        </label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input data-check="email" type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Váš e-mail">
+                        <label for="email">E-mail <span class="label-message">musíte být email</span>
+                            <input data-check="email" autocomplete="off" type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="mobil">Telefon</label>
-                        <input data-check="fill" type="mobil" name="mobil" class="form-control" id="mobil" aria-describedby="emailHelp" placeholder="Váš mobil">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {# Paintball section #}
-        <div class="form-section">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label for="players_count">Počet hráčů</label>
-                        <input data-check="fill" type="number" name="players_count" class="form-control" id="players_count" placeholder="Počet hráčů">
+                        <label for="mobil">Telefon <span class="label-message">musíte vyplnit</span>
+                            <input data-check="fill" autocomplete="off" type="mobil" name="mobil" class="form-control" id="mobil" aria-describedby="emailHelp">
+                        </label>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="date_time_from">Datum čas od</label>
-                        <input data-check="dateTime" autocomplete="off" placeholder="Datum čas od" id="date_time_from" class="datetimepicker form-control" type='text' name="date_time_from" class="form-control" />
-                        <span class="message">Musi byt mensi</span>
+                        <label for="date_time_from">Od <span class="label-message">musi byt mensi</span>
+                            <input data-check="dateTime" autocomplete="off" id="date_time_from" class="datetimepicker form-control" type='text' name="date_time_from" class="form-control" />
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="date_time_to">Datum čas do</label>
-                    <input data-check="dateTime" autocomplete="off" placeholder="Datum čas do" id="date_time_to" class="datetimepicker form-control" type='text' name="date_time_to" class="form-control" />
-                    <span class="message">Musi byt vetsi</span>
+                    <label for="date_time_to">Do <span class="label-message">musi byt vetsi</span>
+                        <input data-check="dateTime" autocomplete="off" id="date_time_to" class="datetimepicker form-control" type='text' name="date_time_to" class="form-control" />
+                    </label>
                 </div>
             </div>
-        </div>
-
-        {# Catering section #}
-        <div class="form-section">
             <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="players_count">Počet hráčů <span class="label-message">musíte vyplnit</span>
+                            <input data-check="fill" type="number" autocomplete="off" name="players_count" class="form-control" id="players_count" placeholder="Počet hráčů">
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

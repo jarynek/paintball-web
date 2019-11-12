@@ -3,8 +3,8 @@ const $ = require("jquery");
 export class OrderService {
     public name: string;
     public orderForm: any;
-    constructor(name: string) {
-        this._init();
+    constructor(name: string, orderForm: any) {
+        this.orderForm = orderForm;
     }
 
     public checkFormData(form: HTMLFormElement): void {
@@ -12,26 +12,22 @@ export class OrderService {
 
             const el = $(event.target);
             const type = $(event.target).data('check');
+            const next = $('#next');
 
             switch (type) {
                 case 'fill':
                     this.checkFill(el);
                     break;
                 case 'email':
-                    this.checkFill(el);
-                    break;
-                case 'dateTime':
-                    console.log('dateTime');
+                    this.checkEmail(el);
                     break;
                 default:
                     break;
             }
-
-            const checkStatue = Object.values(this.orderForm).filter((item: any) =>  item.check === false);
-            if(!checkStatue.length) {
-                $('#next')
-                    .prop('disabled', false)
-                    .removeClass('disabled');
+            const checkStatus = Object.values(this.orderForm).filter((item: any) =>  item.check === false);
+            next.prop('disabled', true).addClass('disabled');
+            if(!checkStatus.length) {
+                next.prop('disabled', false).removeClass('disabled');
             }
         });
     }
@@ -44,8 +40,11 @@ export class OrderService {
 
         const dateCurrent = currentDateTime ? new Date(Date.parse(currentDateTime.toString())): null;
         const dateCompare = compereDateTime ? new Date(Date.parse(compereDateTime.toString())): null;
+        const orderFormDate: any = this.orderForm.find((item: any) => item.name === 'date');
+        orderFormDate.check = false;
 
         if(!dateCurrent || !dateCompare) {
+            $input.closest('label').addClass('error');
             return;
         }
         let compareData = null;
@@ -62,37 +61,39 @@ export class OrderService {
         }
 
         compareInput.removeClass('compare');
-        if(compareData === false) {
+        $('[data-check="dateTime"]').closest('label').removeClass('error');
+        if(!compareData) {
             $input.addClass('compare');
+            $input.closest('label').addClass('error');
         }
+        console.log(compareData);
+        orderFormDate.check = compareData;
+        this.orderForm.find((item: any) => item.name === 'date' ? Object.assign(item, orderFormDate): item);
     }
 
     private checkFill(el: JQuery): void {
-        const name = el.attr('name');
+        const type = el.attr('type');
         Object.values(this.orderForm).forEach((item: any) => {
-            if(item.name === name) {
-                el.removeClass('error');
-                item.check = (el.val() as string).length > 5;
+            if(item.type === type) {
+                el.closest('label').removeClass('error');
+                item.check = (el.val() as string).length > 0;
                 if(!item.check){
-                    el.addClass('error');
+                    el.closest('label').addClass('error');
                 }
             }
         });
     }
 
     private checkEmail(el: JQuery): void {
-        const name = el.attr('name');
+        const type = el.attr('type');
         Object.values(this.orderForm).forEach((item: any) => {
-            if(item.name === name) {
-                item.check = (el.val() as string).length > 5;
+            if(item.type === type) {
+                el.closest('label').removeClass('error');
+                item.check = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((el.val() as string));
+                if(!item.check){
+                    el.closest('label').addClass('error');
+                }
             }
         });
-    }
-
-    private _init(): void {
-        this.orderForm = [
-            {name: 'name', check: false},
-            {name: 'user_name', check: false}
-        ]
     }
 }

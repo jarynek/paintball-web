@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {% if gallery is defined and gallery.title is defined %} Gallery - {{gallery.title}}{% endif %}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        {% if gallery is defined %}
+            <div class="content">{{ gallery.content | raw}}</div>
+            <div class="gallery">
+                {% for file in gallery.files %}
+                    <div class="item" data-file="{{ asset(file) }}" data-onClick="openFileDetail" style="background-image: url({{ asset(file) }})"></div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('build/runtime.js') }}"></script>
+    <script src="{{ asset('build/gallery.js') }}"></script>
+{% endblock %}

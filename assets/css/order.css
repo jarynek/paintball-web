@@ -1,0 +1,91 @@
+.form-section  {
+    padding: 10px 0;
+}
+
+.form-section + .form-section {
+    border-top: solid 1px #E3E3E6;
+}
+
+.compare {
+    border-color: red;
+}
+
+.order-section {
+    position: absolute;
+    z-index: 1;
+    background: #fff;
+    right: -100%;
+    bottom: 60px;
+    top: 60px;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.order-section.active {
+    right: 0;
+}
+
+.label-message {
+    display: none;
+}
+
+label {
+    width: 100%;
+    position: relative;
+}
+
+.label-message {
+    color: red;
+}
+
+.error .label-message {
+    display: inline-block;
+}
+
+.error .form-control, .error .form-control:focus {
+    border-color: red !important;
+}
+
+.section.section_order {
+    height: 500px;
+    width: 60vw;
+    max-width: 700px;
+}
+
+.section.section_order .close-selection {
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+.section.section_order .bd {
+    position: absolute;
+    margin: 0 -15px;
+    top: 60px;
+    bottom: 60px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 20px;
+    right: 20px;
+}
+
+.section.section_order .hd {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.section.section_order .ft {
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    text-align: end;
+}

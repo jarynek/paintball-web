@@ -1,93 +1,74 @@
 @import "~animate.css/animate.css";
 @import "~bootstrap";
 @import "~jquery-datetimepicker/build/jquery.datetimepicker.min.css";
+@import "navigation.css";
+@import "order.css";
 
 body {
     margin: 0;
 }
 
-.navigation {
-    background: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    richness: 0;
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.8rem;
 }
 
-.navigation ul {
+h1 {
     text-align: center;
 }
 
-.navigation ul li {
-    display: inline-block;
+h2 {
+    font-size: 1.7em;
+}
+
+a {
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.header {
+    border-bottom: 1px #dedede solid;
+    padding: 10px 0;
+    margin: 0 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.logo em {
+    font-size: 14px;
+    display: block;
+    font-style: normal;
+    font-weight: 300;
 }
 
 .section {
     position: fixed;
     left: 0;
     right: 0;
-    top: 100px;
+    top: 0;
+    bottom: 0;
     display: none;
-    border: 1px #d6d6d6 solid;
-    width: 70%;
-    max-height: 80%;
     overflow: hidden;
     margin: auto;
-    padding: 20px;
-    -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    background: #fff;
-}
-.section.section_order {
-    height: 80%;
-}
-.bd {
-    position: absolute;
-    top: 60px;
-    bottom: 60px;
+    padding: 10vh 20vw;
+    background: rgba(255, 255, 255, 0.84);
     overflow-y: auto;
-    overflow-x: hidden;
-    left: 20px;
-    right: 20px;
 }
-.hd {
-    background: #fff;
-    position: absolute;
-    padding: 0 20px;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    border-bottom: 1px #d6d6d6 solid;
-}
-.ft {
-    background: #fff;
-    position: absolute;
-    padding: 10px 20px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    border-top: 1px #d6d6d6 solid;
-    text-align: end;
+
+.hd h2 {
+    margin: 0;
+    font-size: 24px;
 }
 .active {
     display: block;
-}
-
-.fullscreen {
-    position: fixed;
-    top: 100px;
-    bottom: 0;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    transform: translate(-50%, -50%);
 }
 
 .form-section  {
@@ -96,26 +77,6 @@ body {
 
 .form-section + .form-section {
     border-top: solid 1px #E3E3E6;
-}
-
-.compare {
-    border-color: red;
-}
-
-.order-section {
-    position: absolute;
-    z-index: 1;
-    background: #fff;
-    right: -100%;
-    bottom: 60px;
-    top: 60px;
-    padding: 20px;
-    width: 100%;
-    transition: all 0.2s ease;
-}
-
-.order-section.active {
-    right: 0;
 }
 
 .spinner {
@@ -130,6 +91,73 @@ body {
 
 .hdn {
     display: none;
+}
+
+.container {
+    position: relative;
+}
+
+.gallery {
+    font-size: 0;
+}
+
+.gallery .item {
+    display: inline-block;
+    width: 25%;
+    padding-bottom: 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border: solid 1px #fff;
+    position: relative;
+}
+
+@media screen and (max-width: 678px) {
+    .gallery .item {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+}
+
+.gallery .item a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.gallery .item a .title {
+    position: absolute;
+    bottom: -24px;
+    font-size: 16px;
+}
+
+.file-close {
+    cursor: pointer;
+}
+
+.file-container {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    z-index: 1;
+    border: solid 1px #fff;
+}
+
+.file-container img {
+    width: 100%;
+}
+
+.file-container .file-hd {
+    position: absolute;
+    right: 0;
+    font-size: 16px;
+}
+
+.close-selection {
+    z-index: 1;
+    cursor: pointer;
 }
 
 .error {
@@ -148,3 +176,198 @@ body {
 .btn.disabled {
     opacity: 0.3;
 }
+
+.label-message {
+    display: none;
+}
+
+label {
+    width: 100%;
+    position: relative;
+}
+.label-message {
+    color: red;
+}
+
+.error .label-message {
+    display: inline-block;
+}
+
+.error .form-control, .error .form-control:focus {
+    border-color: red !important;
+}
+
+.loading {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(142, 143, 143, 0.3);
+    border-radius: 50%;
+    border-top-color: #057afe;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+.bd {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 20px;
+    right: 20px;
+}
+.ft {
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    text-align: end;
+}
+
+.hd h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.active {
+    display: block;
+}
+
+.fullscreen {
+    position: fixed;
+    top: 100px;
+    bottom: 0;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+}
+
+
+.spinner {
+    position: absolute;
+    background: #fff;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.hdn {
+    display: none;
+}
+
+.container {
+    position: relative;
+}
+
+.gallery {
+    font-size: 0;
+}
+
+.gallery .item {
+    display: inline-block;
+    width: 25%;
+    padding-bottom: 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border: solid 1px #fff;
+    position: relative;
+}
+
+@media screen and (max-width: 678px) {
+    .gallery .item {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+}
+
+.gallery .item a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.gallery .item a .title {
+    position: absolute;
+    bottom: -24px;
+    font-size: 16px;
+}
+
+.file-close {
+    cursor: pointer;
+}
+
+.file-container {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    z-index: 1;
+    border: solid 1px #fff;
+}
+
+.file-container img {
+    width: 100%;
+}
+
+.file-container .file-hd {
+    position: absolute;
+    right: 0;
+    font-size: 16px;
+}
+
+.close-selection {
+    z-index: 1;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.error {
+    border-color: red;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+
+.form-control:focus.error {
+    border-color: red !important;
+}
+
+.btn.disabled {
+    opacity: 0.3;
+}
+
+@keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+
+

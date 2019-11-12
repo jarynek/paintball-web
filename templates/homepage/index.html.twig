@@ -3,19 +3,26 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
-    <div class="fullscreen">
-        <video loop muted autoplay class="fullscreen-bg__video">
-            <source src="{{ asset('images/video2.mp4') }}" type="video/mp4">
-        </video>
+    <div class="header">
+        <div class="logo">Paintball Haleny
+            <em>Predator shooting range</em>
+        </div>
+        <div class="menu">
+            <a href="{{ path('gallery') }}">Gallery</a>
+            <a href="facebook">Facebook</a>
+        </div>
     </div>
     {% include 'components/navigation.html.twig' with {'menu': sections } %}
     {% for section in sections %}
         <div class="section animated {{ section.id }}" id="{{ section.id }}">
-            <span data-onclick="closeSelection">Close</span>
-            {% include ['sections/'~ section.tpl ~ '.html.twig', 'components/empty.html.twig'] with {'section': section } %}
+            <div class="content">
+                <p class="text-center">
+                    <i class="material-icons close-selection" data-onclick="closeSelection">close</i></p>
+                {% include ['sections/'~ section.tpl ~ '.html.twig', 'components/empty.html.twig'] with {'section': section } %}
+            </div>
         </div>
     {% endfor %}
-
+<div class="blur"></div>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/runtime.js') }}"></script>

@@ -18,7 +18,7 @@ export class JsCore {
      */
     public onClick(object: Object): void {
 
-        $('[data-onClick]').on('click', (event: MouseEvent) => {
+        $(document).on('click', '[data-onClick]',(event: MouseEvent) => {
 
             this.fn = $((event.target) as HTMLElement).data('onclick');
 
@@ -42,8 +42,12 @@ export class JsCore {
                 lang:'de',
                 onChangeDateTime:(dp: any, $input: JQuery | null) => {
                     callBackFn(dp, $input);
-                }
+                },
             }
         );
+    }
+
+    public chaining(){
+        console.log('jarek');
     }
 }
