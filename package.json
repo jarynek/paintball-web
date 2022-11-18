@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/jarynek/paintball-web#readme",
   "dependencies": {
-    "@symfony/webpack-encore": "^0.28.0",
+    "@symfony/webpack-encore": "^4.1.1",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.3.1",
     "bootstrap-datepicker": "^1.9.0",
